@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Date Object</title>
+</head>
+<style>
+    h1{
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 4rem;
+        font-weight: bold;
+        text-decoration: underline gray;
+    }
+
+    h2{
+        border: 2px black solid;
+        border-radius: 4px;
+        background-color: burlywood;
+        text-align: center;
+        
+    }
+
+    #imgSize{
+        width: 64px;
+        height: 44px;
+        padding: 8px 0px;
+    }
+
+</style>
+<body>
+    <h1>Different Timezones</h1>
+    <h2><img id='imgSize' src="https://www.crwflags.com/fotw/images/u/um-bhj.gif">Baker Island        : <span id = "bakerIsland"></span></h2> 
+    <h2><img src="https://www.countryflags.io/nz/flat/64.png">New Zealand     : <span id = "newZealand"> </span></h2>
+    <h2><img src="https://www.countryflags.io/fr/flat/64.png">France       : <span id = "France"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/um/flat/64.png">Alaska : <span id = "Alaska"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/ca/flat/64.png">Canada       : <span id = "Canada"> </span></h2>
+    <h2><img src="https://www.countryflags.io/mx/flat/64.png">Mexico        : <span id = "Mexico"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/cl/flat/64.png">Chile        : <span id = "Chile"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/br/flat/64.png">Brazil        : <span id = "Brazil"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/dk/flat/64.png">Denmark        : <span id = "Denmark"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/pt/flat/64.png">Portugal        : <span id = "Portugal"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/es/flat/64.png">Spain        : <span id = "Spain"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/de/flat/64.png">Germany        : <span id = "Germany"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/ru/flat/64.png">Russia        : <span id = "Russia"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/za/flat/64.png">South Africa        : <span id = "southAfrica"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/ir/flat/64.png">Iran        : <span id = "Iran"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/ge/flat/64.png">Georgia        : <span id = "Georgia"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/af/flat/64.png">Afghanistan        : <span id = "Afghanistan"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/pk/flat/64.png">Pakistan        : <span id = "Pakistan"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/in/flat/64.png">India        : <span id = "India"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/bd/flat/64.png">Bangladesh        : <span id = "Bangladesh"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/au/flat/64.png">Australia        : <span id = "Australia"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/th/flat/64.png">Thailand        : <span id = "Thailand"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/cn/flat/64.png">China        : <span id = "China"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/jp/flat/64.png">Japan        : <span id = "Japan"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/as/flat/64.png">Samoa        : <span id = "Samoa"> </span></h2> 
+    <h2><img src="https://www.countryflags.io/ki/flat/64.png">Kiribati        : <span id = "Kiribati"> </span></h2> 
+
+    <hr>
+<footer class="text-gray-700 body-font">
+  <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+    <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+      <span class="ml-3 text-xl">GM</span>
+    </a>
+    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2020 Gaurav Mazumder —
+      <a href="https://twitter.com/MazumdarGaurav" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@MazumdarGaurav</a>
+    </p>
+    </span>
+  </div>
+</footer>
+</body>
+<script>
+
+    let timeZones = ['-12.0','-11.0','-10.0','-9.0','-8.0','-7.0','-6.0','-5.0','-4.0','-1.0','0.0','+1.0','+2.0','+3.0','+3.50','+4.0','+4.50','5.00','5.50','6.0','+6.50','+7.0','+8.0','+9.0','+13.0','14.0'];
+
+    function calcTime(offset) {
+
+        d = new Date();
+
+        utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+
+        nd = new Date(utc + (3600000*offset));
+
+        return "The local time is " + nd.toLocaleString();
+
+    }
+
+    function displayTime(city,num){
+        document.getElementById(city).innerHTML = calcTime(timeZones[num]);
+    }
+    
+    setInterval(displayTime, 1000, 'bakerIsland', 0);
+    setInterval(displayTime, 1000, 'newZealand', 1);
+    setInterval(displayTime, 1000, 'France', 2);
+    setInterval(displayTime, 1000, 'Alaska', 3);
+    setInterval(displayTime, 1000, 'Canada', 4);
+    setInterval(displayTime, 1000, 'Mexico', 5);
+    setInterval(displayTime, 1000, 'Chile', 6);
+    setInterval(displayTime, 1000, 'Brazil', 7);
+    setInterval(displayTime, 1000, 'Denmark', 8);
+    setInterval(displayTime, 1000, 'Portugal', 9);
+    setInterval(displayTime, 1000, 'Spain', 10);
+    setInterval(displayTime, 1000, 'Germany', 11);
+    setInterval(displayTime, 1000, 'Russia', 12);
+    setInterval(displayTime, 1000, 'southAfrica', 13);
+    setInterval(displayTime, 1000, 'Iran', 14);
+    setInterval(displayTime, 1000, 'Georgia', 15);
+    setInterval(displayTime, 1000, 'Afghanistan', 16);
+    setInterval(displayTime, 1000, 'Pakistan', 17);
+    setInterval(displayTime, 1000, 'India', 18);
+    setInterval(displayTime, 1000, 'Bangladesh', 19);
+    setInterval(displayTime, 1000, 'Australia', 20);
+    setInterval(displayTime, 1000, 'Thailand', 21);
+    setInterval(displayTime, 1000, 'China', 22);
+    setInterval(displayTime, 1000, 'Japan', 23);
+    setInterval(displayTime, 1000, 'Samoa', 24);
+    setInterval(displayTime, 1000, 'Kiribati', 25);
+</script>
+</html>
